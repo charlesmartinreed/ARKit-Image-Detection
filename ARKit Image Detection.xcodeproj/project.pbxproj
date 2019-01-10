@@ -11,8 +11,8 @@
 		8CB37AF321E703C6009FBD4F /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB37AF221E703C6009FBD4F /* art.scnassets */; };
 		8CB37AF521E703C6009FBD4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB37AF421E703C6009FBD4F /* ViewController.swift */; };
 		8CB37AF821E703C6009FBD4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB37AF621E703C6009FBD4F /* Main.storyboard */; };
-		8CB37AFA21E703C8009FBD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB37AF921E703C8009FBD4F /* Assets.xcassets */; };
 		8CB37AFD21E703C8009FBD4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB37AFB21E703C8009FBD4F /* LaunchScreen.storyboard */; };
+		8CB37B0521E7067D009FBD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB37B0421E7067C009FBD4F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +21,9 @@
 		8CB37AF221E703C6009FBD4F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		8CB37AF421E703C6009FBD4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8CB37AF721E703C6009FBD4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8CB37AF921E703C8009FBD4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CB37AFC21E703C8009FBD4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CB37AFE21E703C8009FBD4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CB37B0421E7067C009FBD4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +59,8 @@
 				8CB37AF021E703C6009FBD4F /* AppDelegate.swift */,
 				8CB37AF221E703C6009FBD4F /* art.scnassets */,
 				8CB37AF421E703C6009FBD4F /* ViewController.swift */,
+				8CB37B0421E7067C009FBD4F /* Assets.xcassets */,
 				8CB37AF621E703C6009FBD4F /* Main.storyboard */,
-				8CB37AF921E703C8009FBD4F /* Assets.xcassets */,
 				8CB37AFB21E703C8009FBD4F /* LaunchScreen.storyboard */,
 				8CB37AFE21E703C8009FBD4F /* Info.plist */,
 			);
@@ -127,7 +127,7 @@
 			files = (
 				8CB37AF321E703C6009FBD4F /* art.scnassets in Resources */,
 				8CB37AFD21E703C8009FBD4F /* LaunchScreen.storyboard in Resources */,
-				8CB37AFA21E703C8009FBD4F /* Assets.xcassets in Resources */,
+				8CB37B0521E7067D009FBD4F /* Assets.xcassets in Resources */,
 				8CB37AF821E703C6009FBD4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

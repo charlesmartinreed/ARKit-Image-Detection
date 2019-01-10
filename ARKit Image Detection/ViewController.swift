@@ -24,7 +24,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene(named: "art.scnassets/GameScene.scn")!
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -34,7 +34,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        //replacing ARWorldImageTrackingConfiguration
+        //let configuration = ARWorldTrackingConfiguration()
+        let configuration = ARImageTrackingConfiguration()
+        
+        //images will be placed in the Assets folder, created by right clicking and choosing "New AR Resource Group"
+        guard let trackedImages = ARReferenceImage.referenceImages(inGroupNamed: "Photos", bundle: Bundle.main) else {
+            print("No images available")
+            return
+        }
+        
+        //now, our config will look for images as specified in our tracked images bundle
+        configuration.trackingImages = trackedImages
+        configuration.maximumNumberOfTrackedImages = 1 //right now, just testing for the single card
 
         // Run the view's session
         sceneView.session.run(configuration)
@@ -48,28 +60,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        //always called when a new anchor is added to the scene, such as when we find our image in the AR world
         let node = SCNNode()
-     
+        
+        if let imageAnchor = anchor as? ARImageAnchor {
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            plane.firstMaterial?.diffuse.contents = UIColor(white: 1, alpha: 0.8)
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            //rotate plane node to match that of the image
+            planeNode.eulerAngles.x = -.pi / 2
+            
+            let shipScene = SCNScene(named: "art.scnassets/ship.scn")!
+            let shipNode = shipScene.rootNode.childNodes.first!
+            shipNode.position = SCNVector3Zero
+            shipNode.position.z = 0.15 //moving the node a little closr to the user
+            
+            planeNode.addChildNode(shipNode)
+            
+            node.addChildNode(planeNode)
+        }
+        
         return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
     }
 }
